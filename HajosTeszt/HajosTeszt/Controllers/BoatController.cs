@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HajosTeszt.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace HajosTeszt.Controllers
             [Route("questions/all")]
             public ActionResult M1()
             {
-                HajosTesztContext context = new HajosTesztContext();
+                HajostesztContext context = new HajostesztContext();
                 var kérdések = from x in context.Questions select x.QuestionText;
 
                 return new JsonResult(kérdések);
