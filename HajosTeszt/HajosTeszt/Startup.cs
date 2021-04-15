@@ -36,12 +36,32 @@ namespace HajosTeszt
 
             //app.UseEndpoints(endpoints =>
             //{
-              //  endpoints.MapGet("/", async context =>
-                //{
-                    //await context.Response.WriteAsync("Hello World!");
-                //});
+            //  endpoints.MapGet("/", async context =>
+            //{
+            //await context.Response.WriteAsync("Hello World!");
             //});
+            //});
+
+            app.UseHttpsRedirection();
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles(); //A sorrend fontos!
+
+            app.UseRouting();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapGet("/", async context =>
+            //    {
+            //        await context.Response.WriteAsync("Hello World!");
+            //    });
+            //});
+
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
-        
     }
 }
